@@ -1,0 +1,36 @@
+<%- include('../includes/head.ejs') %>
+<link rel="stylesheet" href="/css/cart.css">  
+<script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+<script src="https://js.stripe.com/v3/"></script>
+</head>
+
+<body>
+    <%- include('../includes/navigation.ejs') %>
+    <main>
+        <ul class="cart__item-list">
+            <% products.forEach(p => { %>
+            <li class="cart__item">
+                <h1><%= p.productId.title %></h1>
+                <h2>Quantity: <%= p.quantity %></h2>
+            </li>
+            <% }) %>
+        </ul>
+        <div class="centered">
+            <h2>Total: <%= totalSum %></h2>
+        </div>
+        <div class="centered">
+            <button class='btn' id='order-btn'>ORDER</button>
+            
+            <script>
+                var stripe = Stripe('pk_test_51J8JvjC65udAHr4JeTALLy4JaVimFKWdceOUTlulHx8nre1bHrz7iIcGEkeWiilDZXP48RAdNg6OutMejEI39FwK00V6w3rVJz');
+                var orderBtn = document.querySelector('#order-btn');
+                orderBtn.addEventListener('click', function() {
+                    stripe.redirectToCheckout({
+                        sessionId: '<%= stripeSessionId %>'
+                    })
+                });
+            
+            </script>
+        </div>
+    </main>
+    <%- include('../includes/end.ejs') %>
