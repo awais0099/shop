@@ -22,3 +22,10 @@ const deleteProduct = btn => {
       console.log(err);
     });
 };
+
+const btn = document.querySelectorAll('.deletebtn');
+console.log(btn);
+// document.querySelectorAll('.deletebtn').addEventListener("click", function (event) {
+  // console.log(event.srcElement);
+  // deleteProduct(event);
+// });

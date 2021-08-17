@@ -36,11 +36,11 @@ const store = new MongoDBStore({
 
 const csrfProtection = csrf();
 
-// const privateKey = fs.readFileSync('./server.key');
-// const certificate = fs.readFileSync('./server.cert');
+const privateKey = fs.readFileSync('./server.key');
+const certificate = fs.readFileSync('./server.cert');
 
 const fileStorage = multer.diskStorage({
-  destination: './public/images/',
+  destination: 'images/',
   filename: (req, file, cb) => {
     cb(null, file.originalname);
   }
@@ -74,8 +74,7 @@ app.use(
 );
 
 app.use(express.static(path.join(__dirname, 'public')));
-
-// app.use('/images', express.static(path.join(__dirname, 'images')));
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 app.use(
   session({
@@ -132,11 +131,11 @@ app.use((error, req, res, next) => {
 mongoose
   .connect(MONGODB_URI, {useNewUrlParser: true, useUnifiedTopology: true})
   .then(result => {
-    // https.createServer({
-        // key: privateKey,
-        // cert: certificate
-    //   }, app)
-      app.listen(process.env.PORT || 3000, function () {
+    https.createServer({
+        key: privateKey,
+        cert: certificate
+      }, app)
+      .listen(process.env.PORT || 3000, function () {
         console.log('Example app listening on port 3000! Go to https://localhost:3000/')
       })
   })
