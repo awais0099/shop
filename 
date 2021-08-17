@@ -1,0 +1,17 @@
+[33mcommit ac99f21d74970a215f8d579717f59910ecd1f956[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: awais <awaishussainmkd11@gmail.com>
+Date:   Tue Aug 17 12:38:28 2021 +0500
+
+    problems fixed/completed
+
+[33mcommit de11b3f90abaf1c50f0f5f9b4d2115daee084d9d[m[33m ([m[1;31mheroku/master[m[33m)[m
+Author: awais <awaishussainmkd11@gmail.com>
+Date:   Sun Jul 25 16:37:48 2021 +0500
+
+    node version change from 12.8.3 to 14.17.3
+
+[33mcommit 5b73dce477799a70e33b8018d3ce5c71389a32b3[m
+Author: awais <awaishussainmkd11@gmail.com>
+Date:   Sun Jul 25 16:27:09 2021 +0500
+
+    prepared for deployment
